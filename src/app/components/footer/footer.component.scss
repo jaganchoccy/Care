@@ -1,0 +1,45 @@
+@import "../../../styles.scss";
+ul {
+    list-style-type: none;
+    padding: 0;
+   }
+
+.ProName{
+    background: $SndColor;
+    color: $white;
+    
+    padding: 0vw 4vw;
+    font-size: 14px;
+    b{
+        font-weight: 900;
+        font-size: 2.5rem;
+            padding: 0 5px;
+        font-family: "Alex Brush";
+    }
+}
+.twty{
+    line-height: 60px;
+    text-align: center;
+    color: #ffffff8c;
+}
+.footerCnt{
+    padding: 3vw 4vw;
+    font-size: 14px;
+    background-color: $appColor;
+    h6{
+        color: $white;
+    }
+    li,p{
+       color: #ffffff8c;
+    }
+}
+fa-icon{
+    color: #ffffff8c;
+    padding-right: 10px;
+}
+.copy{
+    padding: 1vw 4vw;
+    font-size: 14px;
+    background-color: $SndColor;
+    color: #ffffff8c;
+}

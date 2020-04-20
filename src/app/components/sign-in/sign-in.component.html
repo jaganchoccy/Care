@@ -1,0 +1,93 @@
+
+<div class="loader" *ngIf="loader">
+    <p-progressSpinner [style]="{width: '30px', height: '30px'}" strokeWidth="6" fill="#fff" animationDuration="5s"></p-progressSpinner>
+    <P>loading..</P>
+</div>
+<section class="container-fluid">
+    <div class="signCard UCard cardShadow2">    
+        <span class="logo" routerLink="/"><b>P</b>ersonal Care</span>
+        <div class="row centerForm">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 second">
+            
+            <h5 class="text-center">Sign In</h5>
+            <div class="row">
+                <div class="col-md-12 dont">
+                    <p><b>Health</b> | Learn from expert</p>
+                </div>
+            </div>
+                <div class="container">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <div class="input-group-text"><fa-icon [icon]="faUser"></fa-icon></div>
+                                </div>
+                            <input type="email" class="form-control" formControlName="email" placeholder="Enter email">
+                            </div>
+                            <small class="form-text text-muted" 
+                                *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required">
+                                Please enter email address.!
+                            </small>
+
+                            <small class="form-text text-muted"
+                            *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email">
+                                Email address not well formed.!
+                            </small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text"><fa-icon [icon]="faKey"></fa-icon></div>
+                            </div>
+                            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+                        </div>
+                        <small class="form-text text-muted" 
+                                *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required">
+                                Please enter Password.!
+                            </small>
+                    </div>
+                    <div class="row bottom">
+                        <div class="col-md-6"><button type="submit" class="btn btn-block UBtn" [disabled]="!loginForm.valid">Submit</button></div>
+                        <div class="col-md-6"><p class="forget"  (click)="openModalForgetPswd(template)">Forgot Password !</p></div>
+                    </div>
+                </form>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 dont">
+                        <p style="margin: 0px;">Don't have an account? <b class="signUpBtn" routerLink="/signUp">SignUp</b></p>
+                    </div>
+                </div>
+                
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="terms">
+        <div class="dont">
+            <p>Teams & conditions * Privacy Policy</p>
+        </div>
+    </div>
+    </div>
+</section>
+<ng-template #template>
+    <div class="modal-header"> 
+      <p class="modal-title pull-left">Forget Password !</p>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <input type="email" [(ngModel)] = 'forgetPswd'  class="form-control" placeholder="Enter email">
+            <small class="form-text text-muted" 
+                                *ngIf="forgetPswdMsg">
+                                Please enter Email ID !
+                            </small>
+        </div>
+        <div class="row">
+            <div class="col-md-9"><small>Reset link sent to this Email address!</small></div>
+            <div class="col-md-3"><button type="submit" class="btn UBtn btn-block float-right"  (click)="forgetPassword()">Send</button></div>
+        </div>
+    </div>
+  </ng-template>

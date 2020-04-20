@@ -1,0 +1,103 @@
+<div class="loader" *ngIf="loader">
+    <p-progressSpinner [style]="{width: '30px', height: '30px'}" strokeWidth="6" fill="#fff" animationDuration="5s"></p-progressSpinner>
+    <P>loading..</P>
+</div>
+<section class="container-fluid">
+    <span class="logo" routerLink="/"><b>P</b>ersonal Care</span>
+    <div class="row signCard">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 second cardShadow3">
+                <div class="container">
+                            <form class="formSignUp" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                <div class="create">Create an account</div>
+                                <div class="quick">It's quick and easy.</div>
+                                <div class="row">
+                                   
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                  <div class="input-group-text"><fa-icon [icon]="faUser"></fa-icon></div>
+                                                </div>
+                                            <input type="text" placeholder="User Name" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                                            
+                                            <!-- <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                                                <div *ngIf="f.userName.errors.required">First Name is required</div>
+                                            </div> -->
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                        
+                               
+                                <div class="row">
+                                    
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                  <div class="input-group-text"><fa-icon [icon]="faEnvelope"></fa-icon></div>
+                                                </div>
+                                            <input type="text"  placeholder="E-mail" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                            
+                                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                                <!-- <div *ngIf="f.email.errors.required">Email is required</div> -->
+                                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+                                <div class="row">
+                                    
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                  <div class="input-group-text"><fa-icon [icon]="faKey"></fa-icon></div>
+                                                </div>
+                                            <input type="password"  placeholder="Password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                                           
+                                            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                                <!-- <div *ngIf="f.password.errors.required">Password is required</div> -->
+                                                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                  <div class="input-group-text"><fa-icon [icon]="faLock"></fa-icon></div>
+                                                </div>
+                                            <input type="password"  placeholder="Confirm Password" formControlName="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                                           
+                                            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                                                <!-- <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div> -->
+                                                <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row bottom">
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-8"><button type="submit" class="btn btn-block UBtn" >Create Account</button></div>
+                                    <div class="col-md-2"></div>
+                                </div>
+                            </form>
+                </div>
+                <p class="signUp">Already have an Account ? <b class="signUpBtn" routerLink="/signIn">SignIn</b></p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</section>

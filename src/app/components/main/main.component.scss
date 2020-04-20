@@ -1,0 +1,36 @@
+@import "../../../styles.scss";
+.mainPg{
+    background: $grey;
+    
+}
+.patient{
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.first{
+    padding-top: calc(100vh - 75vh);
+    height: calc(100vh);
+}
+
+.search {
+    span {
+        right: 0;
+        position: absolute;
+        top: 2px;
+    }
+    button{
+        position: absolute;
+        top: 12px;
+        line-height: 30px;
+        right: 15px;
+        width: 10%;
+        background: $appColor;
+        border: 2px solid $appColor;
+        fa-icon{
+            color:$white;
+        }
+    }
+}

@@ -1,0 +1,86 @@
+@import "../../../styles.scss";
+
+
+.container-fluid {
+    background: $appColor;
+    height: 100vh;
+  }
+  .logo {
+    width: 10vw;
+    padding: 1vw;
+  }
+  .second{
+    padding: 0 6vw;
+  }
+  .signCard {
+    min-height: 75vh;
+    background-color: $white;
+    position: absolute;
+    width: 80%;
+    border-radius: 4px;
+    transform: translate(10%, -50%);
+    top: 50%;
+  }
+  .signUpBtn {
+    cursor: pointer;
+    &:hover {
+      text-shadow: 2px 1px 4px #636161;
+    }
+  }
+  .centerForm {
+    position: absolute;
+    width: 100%;
+    transform: translate(16px,-50%);
+    top: 50%;
+  }
+  .terms {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 0px;
+    p{
+      margin: 0px;
+      padding: 10px;
+      background-color: $SndColor;
+      color: $lightG;
+    }
+  }
+  .form-group {
+    margin-bottom: 1rem !important;
+  }
+  .forget {
+    line-height: 35px;
+    text-align: center;
+    color: $appColor;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .modal-header {
+    padding: 10px;
+    .modal-title {
+      font-size: 14px;
+    }
+  }
+  .bottom {
+    padding: 0 15px;
+    .col-md-6 {
+      padding: 0px;
+    }
+  }
+  .input-group-text,
+  .form-control {
+    background-color: $white;
+    color: #adb5bd;
+    border-width: 0.5px;
+  }
+  input:placeholder-shown {
+    font-size: 1em;
+    color: $placeholderColor;
+    font-weight: $fontW300;
+  }
+  .dont {
+    font-size: 12px;
+    text-align: center;
+  }
+  

@@ -1,0 +1,36 @@
+<nav class="fixed-top navbar-light">
+    <div class="row toolbar" style="line-height: 3.6rem;padding: 0 10px;">
+        <div class="col-6 col-md-2">
+            <span class="logo" routerLink="/"><b>P</b>ersonal Care</span>
+        </div>
+       <div class="col-md-1">
+           <span></span>
+       </div>
+       <div class="col-md-4">
+        <div class="search">
+            <div class="ui-fluid">
+                <p-autoComplete [(ngModel)]="SearchValue" [suggestions]="filteredData" (completeMethod)="filterData($event)"  [inputStyle]="{'line-height':'22px','font-size':'13px'}" styleClass="wid100"
+                [minLength]="1" placeholder="Search by patient ID" field="name" >
+                <ng-template let-search pTemplate="item">
+                <div><fa-icon *ngIf="search.type == 'tutor'" [icon]="tutor"></fa-icon><fa-icon *ngIf="search.type == 'course'" [icon]="course"></fa-icon>&nbsp; {{search.name}}</div>
+                </ng-template>
+            </p-autoComplete>
+            </div>
+            <button><fa-icon [icon]="faSearch"></fa-icon></button>
+        </div>
+       </div>
+       <div class="col-md-2">
+           <span></span>
+       </div>
+        <div class="col-6 col-md-3">
+            <div class="row">
+                <div class="col-6 text-right" routerLink="/signIn" style="padding-right: 0px;">
+                    <button type="button" class="sign">Sign In</button>
+                </div>
+                <div class="col-6" routerLink="/signUp">
+                    <button type="button" class="sign">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

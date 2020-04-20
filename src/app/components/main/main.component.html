@@ -1,0 +1,27 @@
+<app-toolbar></app-toolbar>
+<div class="mainPg">
+    <section class="container-fluid first">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-5">
+                <div><h1>Search patient details</h1></div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dicta numquam, fugiat a ipsa, architecto temporibus ullam accusamus ratione fugit at vero nemo! Dicta ex facere consectetur itaque cumque provident.</p>
+                    <div class="search">
+                            <div class="ui-fluid">
+                                <p-autoComplete [(ngModel)]="SearchValue" [suggestions]="filteredData" (completeMethod)="filterData($event)"  [inputStyle]="{'line-height':'22px','font-size':'13px'}" styleClass="wid100"
+                                [minLength]="1" placeholder="Search by patient ID" field="name" >
+                                <ng-template let-search pTemplate="item">
+                                <div><fa-icon *ngIf="search.type == 'tutor'" [icon]="tutor"></fa-icon><fa-icon *ngIf="search.type == 'course'" [icon]="course"></fa-icon>&nbsp; {{search.name}}</div>
+                                </ng-template>
+                            </p-autoComplete>
+                            </div>
+                            
+                        </div>
+            </div>
+            <div class="col-5">
+                    <img src="../../../assets/images/patient.svg" alt="patient" class="patient">
+            </div>
+            <div class="col-1"></div>
+        </div>
+    </section>
+</div>
