@@ -16,21 +16,24 @@
 }
 
 .search {
-    span {
-        right: 0;
-        position: absolute;
-        top: 2px;
+    display: flex;
+    form{
+        width: 100%;
+        display: flex;
+        .form-group{
+            width: 80%;
+        }
+        input{
+            
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
     }
     button{
-        position: absolute;
-        top: 12px;
-        line-height: 30px;
-        right: 15px;
-        width: 10%;
-        background: $appColor;
-        border: 2px solid $appColor;
-        fa-icon{
-            color:$white;
-        }
+        height: 37px;
+        background: #3498db;
+        color: #fff;
+        width: 20%;
+        border: 1px solid #3498db;
     }
 }

@@ -132,5 +132,8 @@
       }
     }
   },
-  "defaultProject": "Unitrix"
+  "defaultProject": "Unitrix",
+  "cli": {
+    "analytics": "31e2bc55-fc08-4724-b62f-1cbbf9e4644a"
+  }
 }
