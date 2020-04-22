@@ -110,3 +110,26 @@ p-progressSpinner {
   background: $grey !important;
   color: $SndColor !important;
 }
+.ui-tabview .ui-tabview-panels{
+  
+  background: $white !important;
+}
+.ui-tabview-nav li{
+  background: $white !important;
+}
+.ui-tabview-title{
+  color: $appColor !important;
+}
+
+.card{
+  background: $white;
+  padding: 20px;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+  border-radius: 4px;
+}
+.theme-green .bs-datepicker-head{
+  background: $appColor !important;
+}
+.theme-green .bs-datepicker-body table td.week span{
+  color:$appColor;
+}

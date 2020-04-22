@@ -5,6 +5,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 // FontAwesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ToastrModule } from 'ngx-toastr'; //alert
+//chartJS
+import { ChartsModule } from 'ng2-charts';
 //Http
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from '../app/CommonServices/interceptor.service';
@@ -15,6 +17,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 //primeng
 import { ButtonModule } from 'primeng/button';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import {TabViewModule} from 'primeng/tabview';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 //service
 import { ShareDataService } from './CommonServices/share-data.service';
@@ -29,6 +32,11 @@ import { MainComponent } from './components/main/main.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
+import { PatientInfoComponent } from './components/patient-info/patient-info.component';
+import { VitalSignsComponent } from './components/vital-signs/vital-signs.component';
+import { ActivitiesComponent } from './components/activities/activities.component';
+import { AppointHistComponent } from './components/appoint-hist/appoint-hist.component';
+import { MediDataComponent } from './components/medi-data/medi-data.component';
 
 
 
@@ -43,14 +51,21 @@ import { PatientDetailComponent } from './components/patient-detail/patient-deta
     PageNotFoundComponent,
     ToolbarComponent,
     PatientDetailComponent,
+    PatientInfoComponent,
+    VitalSignsComponent,
+    ActivitiesComponent,
+    AppointHistComponent,
+    MediDataComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ChartsModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
     BsDatepickerModule.forRoot(),
     AppRoutingModule,
+    TabViewModule,
     ModalModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 6000,
@@ -64,10 +79,7 @@ import { PatientDetailComponent } from './components/patient-detail/patient-deta
     ButtonModule,
     AutoCompleteModule
   ],
-  providers: [
-    ShareDataService,
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
-  ],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

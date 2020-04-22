@@ -8,13 +8,16 @@ export class ConfigUrl {
     signUpUrl: any;
     signInUrl: any;
     reset: any;
+    patientId:any;
 
     constructor() {
         //signup 
-        this.signUpUrl = '/Auth/signUp';
+        this.signUpUrl = '/Care/signUp';
         //signin
-        this.signInUrl = '/Auth/signIn';
+        this.signInUrl = '/Care/signIn';
         //reset password
-        this.reset = '/Auth/resetPassword';
+        this.reset = '/Care/resetPassword';
+        //get patient
+        this.patientId ='/Care/dbs/PatientVitals/colls/CaliberBBContainer'
     }
 }

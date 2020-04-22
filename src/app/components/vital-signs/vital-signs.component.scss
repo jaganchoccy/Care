@@ -1,0 +1,13 @@
+@import "../../../styles.scss";
+
+.heart{
+    max-height: 30vh;
+    background: $white;
+}
+.blood{
+    height: 50vh;
+    background: $white;
+}
+.theme-default{
+    color: red !important;
+}
