@@ -8,7 +8,7 @@ export class InterceptorService implements HttpInterceptor {
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         var date = new Date();
         let gmt = date['toGMTString']();
-        debugger
+        
         console.log(gmt)
         const duplicate = req.clone({
             //https://gentle-brushlands-56872.herokuapp.com

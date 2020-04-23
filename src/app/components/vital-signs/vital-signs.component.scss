@@ -1,13 +1,19 @@
 @import "../../../styles.scss";
 
 .heart{
-    max-height: 30vh;
+    height: 30vh;
     background: $white;
 }
 .blood{
-    height: 50vh;
+    height: 20vh;
     background: $white;
 }
 .theme-default{
     color: red !important;
+}
+.card{
+    h5,.heading{
+        font-weight: 600;
+    }
+    
 }

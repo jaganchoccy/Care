@@ -118,7 +118,8 @@ p-progressSpinner {
   background: $white !important;
 }
 .ui-tabview-title{
-  color: $appColor !important;
+  color: $black !important;
+  font-size: 12px !important;
 }
 
 .card{
@@ -132,4 +133,10 @@ p-progressSpinner {
 }
 .theme-green .bs-datepicker-body table td.week span{
   color:$appColor;
+}
+.ui-tabview-panel{
+  padding: 15px !important;
+}
+.ui-button-text{
+  font-size: 10px !important;
 }

@@ -15,20 +15,12 @@ export class MainComponent implements OnInit {
 
   
   getPatientId(){
-    debugger
+  
     this._shareData.setPatientId(this.patientID);
-    this._patientS.getPatientIdApi(this.patientID).subscribe(res => {
-      
-      if (res.error) {
-        console.log(res, 'err');
-        
-      } else {
-        this._route.navigateByUrl('/patientDetail')
-        console.log(res, 'succ');
-        
-      }
-    });
-    //this._route.navigateByUrl('/patientDetail')
+    if(this.patientID == undefined){
+      this._route.navigateByUrl('/Search')
+    }
+    this._route.navigateByUrl('/patientDetail')
   }
 
 
