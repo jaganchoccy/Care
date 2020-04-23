@@ -12,13 +12,16 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from '../app/CommonServices/interceptor.service';
 
 //ngx
+
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 //primeng
 import { ButtonModule } from 'primeng/button';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
-import {TabViewModule} from 'primeng/tabview';
+import { TabViewModule } from 'primeng/tabview';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import {TableModule} from 'primeng/table';
 //service
 import { ShareDataService } from './CommonServices/share-data.service';
 //Components
@@ -60,6 +63,7 @@ import { MediDataComponent } from './components/medi-data/medi-data.component';
   imports: [
     BrowserModule,
     FormsModule,
+    TableModule,
     ChartsModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
@@ -77,7 +81,8 @@ import { MediDataComponent } from './components/medi-data/medi-data.component';
     HttpClientModule,
     ProgressSpinnerModule,
     ButtonModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    Ng2SearchPipeModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }],
   bootstrap: [AppComponent]

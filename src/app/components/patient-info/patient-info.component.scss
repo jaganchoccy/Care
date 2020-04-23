@@ -1,6 +1,61 @@
 @import "../../../styles.scss";
 
-.patient{
-    height: 100vh;
-    
+.patient {
+    padding: 1vw 4vw;
+    margin: 0 5vw;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px 0px;
+    label {
+        font-size: 13px;
+    font-weight: 500;
+    margin: 0px;
+    color: #6c757d;
+    letter-spacing: 0.3px;
+    padding: 6px 0;
+    }
+    span{
+        padding: 0 10px;
+        font-size: 12px;
+    }
+}
+.appointments{
+    margin: 2vw 2vw 0;
+    background: #fff;
+    font-size: 12px;
+    padding: 1vw;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 5px 0px;
+    border-radius: 6px;
+    input{
+        width: 50%;
+        border: .5px solid #007ad9;
+        border-radius: 4px;
+        padding: 4px 10px;
+        font-size: 12px;
+        background: #f4f4f4;
+    }
+}
+
+.patImg {
+    img {
+        width: 10vw;
+        height: 10vw;
+        padding: 10px;
+        background: $appColor;
+        border-radius: 25px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.item{
+ 
+}
+.light{
+    color: white;
+    font-weight: 600;
+    background: #007ad9;
+    margin: 0 10px;
+    border-radius: 10px;
+    padding: 2px 4px;
 }

@@ -1,12 +1,16 @@
 <section style="padding-top:60px" class="profile container-fluid">
     <div class="row">
         <div class="col-md-12" style="padding:0px;">
-            <p-tabView>
-                <p-tabPanel header="Patient Info">
+            <p-tabView  (onChange)="handleChange($event)">
+                <p-tabPanel header="Patient Info" >
+
                     <app-patient-info></app-patient-info>
                 </p-tabPanel>
                 <p-tabPanel header="Vital Signs">
-                    <app-vital-signs></app-vital-signs>
+                    <div *ngIf="index == 1">
+                        <app-vital-signs></app-vital-signs>
+                    </div>
+                    
                 </p-tabPanel>
                 <p-tabPanel header="Activities">
                     Content 3

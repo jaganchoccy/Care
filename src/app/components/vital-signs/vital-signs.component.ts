@@ -4,6 +4,7 @@ import { Label } from 'ng2-charts';
 import { Router } from '@angular/router';
 import { ShareDataService } from '../../CommonServices/share-data.service';
 import { vitalService } from './vital-signs.service';
+import { faHeartbeat, faArrowDown,faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-vital-signs',
@@ -14,6 +15,14 @@ export class VitalSignsComponent implements OnInit {
 
   getVitalDetails: any[] = [];
   getBodyTemp: any[] = [];
+  heartRateData: any[] = [];
+  chartTempLabel: any[] = [];
+  heartRateAvg:any;
+  heartRateMin:any;
+  heartRateMax:any;
+  heart = faHeartbeat;
+  faArrowDown =faArrowDown;
+  faArrowUp =faArrowUp;
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -21,17 +30,20 @@ export class VitalSignsComponent implements OnInit {
     scales: { xAxes: [{}], yAxes: [{}] },
   };
   public barChartLabels: Label[] = [];
-  public barChartType: ChartType = 'bar';
+  public barChartType: ChartType = 'line';
   public barChartLegend = true;
 
   public barChartData: ChartDataSets[] = [
-    { data: [], label: 'Temp' }
+    { data: [], label: 'Temperatute' }
   ];
   ///
 
   bsValue = new Date();
   bsRangeValue: Date[];
   maxDate = new Date();
+  bodyTempLabel: any[] = [];
+  byDate: string;
+  loader: boolean;
 
   constructor(private _shareData: ShareDataService, private _route: Router, private _patientS: vitalService, ) {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
@@ -47,7 +59,9 @@ export class VitalSignsComponent implements OnInit {
   getVitalData() {
     let id = this._shareData.getPatientId();
     if (id != undefined) {
+      this.loader = true;
       this._patientS.getPatientIdApi(id).subscribe(res => {
+        this.loader = false;
         if (res.error) {
           console.log(res, 'err');
         } else {
@@ -64,6 +78,7 @@ export class VitalSignsComponent implements OnInit {
           });
           if (this.getVitalDetails.length != 0) {
             this.bodyTemp();
+            this.heartRate();
           }
         }
       });
@@ -72,18 +87,87 @@ export class VitalSignsComponent implements OnInit {
     }
 
   }
+
+  //filterByDate
+  filterByDate(val) {
+    this.byDate = val;
+    this.chartTempLabel = []
+    if (this.byDate != undefined) {
+      this.bodyTempLabel.forEach(ele => {
+        this.chartTempLabel.push(this.dateFormat(ele, this.byDate));
+      })
+    }
+
+    this.barChartLabels = this.chartTempLabel;
+
+    console.log(this.barChartLabels, val)
+  }
   //get body temperature
   bodyTemp() {
     this.getBodyTemp = [];
     this.getVitalDetails.forEach(ele => {
       this.getBodyTemp.push(ele.bodyTemp)
     })
-    debugger
-
     let Value: any = this.getBodyTemp.map((val) => {
       return Math.floor(val)
     });
-    this.barChartData[0].data.push(30,44,54)
+    Value.forEach((el, index) => {
+      this.barChartData[0].data[index] = el;
+    });
+    this.barChartData[0].data.push(Value)
+
+    //label
+    this.bodyTempLabel = []
+    this.getVitalDetails.forEach(ele => {
+      this.bodyTempLabel.push(ele.EventProcessedUtcTime)
+    });
+
+    this.filterByDate('hour')
+
+  }
+
+
+
+
+
+
+
+
+
+  dateFormat(val, byDate) {
+    var fromDate = val;
+    var x = fromDate.split('T');
+    var dateObj = new Date(x[0]);
+    var time = x[1].slice(0, 8)
+
+    if (byDate == 'day') {
+      var day = dateObj.getUTCDate();
+      return day;
+    } else if (byDate == 'month') {
+      var month = dateObj.getUTCMonth() + 1; //months from 1-12
+      return month;
+    } else if (byDate == 'year') {
+      var year = dateObj.getUTCFullYear();
+      return year;
+    } else if (byDate == 'hour') {
+      var hour = time.split(':')
+      return hour[0];
+    } else if (byDate == 'minute') {
+      var min = time.split(':')
+      return min[1];
+    }
+  }
+
+  //calculate heart Rate
+  heartRate() {
+    this.heartRateData = [];
+    this.getVitalDetails.forEach(item => {
+      this.heartRateData.push(item.heartrate)
+    })
+    this.heartRateAvg = this.heartRateData.reduce((a,b) => a + b, 0) / this.heartRateData.length
+    this.heartRateMax = Math.max(...this.heartRateData);
+    this.heartRateMin = Math.min(...this.heartRateData);
+    
   }
 
   // events

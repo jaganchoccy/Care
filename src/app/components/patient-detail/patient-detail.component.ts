@@ -9,13 +9,16 @@ import { ShareDataService } from '../../CommonServices/share-data.service';
 export class PatientDetailComponent implements OnInit {
 
   crtID:number;
-
+  index:any;
   constructor(private _shareData:ShareDataService) { }
 
   ngOnInit() {
     this.crtID = this._shareData.getPatientId();
     //getIdApiCall
   }
+  handleChange(e) {
+    this.index = e.index;
+}
 
 
 

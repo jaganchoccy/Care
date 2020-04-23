@@ -1,3 +1,11 @@
+
+<section>
+    <div class="loader" *ngIf="loader">
+            <p-progressSpinner [style]="{width: '30px', height: '30px'}" strokeWidth="6" fill="#fff" animationDuration="5s"></p-progressSpinner>
+        <P>Data loading..</P>
+    </div>
+
+
 <div class="row">
     <div class="col-md-8"></div>
     <div class="col-xs-12 col-12 col-md-4 form-group">
@@ -10,28 +18,59 @@
         <div class="col-7">
             <div class="card container-fluid">
                 <div class="row">
-                    <div class="col-md-8"><h5>Body temperature</h5></div>
-                    <div class="col-md-4 text-right" (click)="randomize()">
+                    <div class="col-md-5">
+                        <h5>Body temperature</h5>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <span style="font-size: 12px;
+                        padding-right: 12px;">ViewBy:</span>
+                        <select (change)="filterByDate($event.target.value)">
+                            <option value="hour">Hour</option>
+                            <option value="day">Day</option>
+                            <option value="month">Month</option>
+                            <option value="year">Year</option>
+                            <option value="minute">Minute</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 text-right" (click)="randomize()">
                         <button pButton type="button" label="Change Chart View" class="ui-button-rounded"></button>
                     </div>
                 </div>
-                
+
                 <div style="display: block">
-                    <canvas baseChart [datasets]="barChartData" width="400"  [labels]="barChartLabels" [options]="barChartOptions"
-                      [legend]="barChartLegend" [chartType]="barChartType" (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)"></canvas>
-                  </div>
+                    <canvas baseChart [datasets]="barChartData" width="400" [labels]="barChartLabels"
+                        [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
+                        (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+                    <div class="chartLabel">{{byDate}}</div>
+                </div>
             </div>
-            
-              
+
+
         </div>
         <div class="col-5">
             <div class="card container-fluid">
                 <div class="heart">
-                    <div class="heading">Average heart Rate</div>
-                    <div class="float-right">
-                        <h1 style="color: red;">54</h1>
-                        <h6>BPM</h6>
+                    <div class="heading">Average Heart Rate</div>
+                    <div class="row">
+                        <div class="col-md-8 heartImg">
+                            <fa-icon [icon]="heart"></fa-icon>
+                        </div>
+                        <div class="col-md-4 float-right">
+                            <h1 style="color: red;padding-top: 3vw;text-align:right;">{{heartRateAvg | number : '1.2-2'}}</h1>
+                            <h6 class="text-right">BPM</h6>
+                        </div>
+                    </div>
+                    <div class="row minMax">
+                        <div class="col-md-6 text-left">
+                            <span><b>Low &nbsp;</b> {{heartRateMin | number : '1.2-2'}} </span>
+                            <fa-icon [icon]="faArrowDown"></fa-icon>
+                            
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <span><b>High &nbsp;</b> {{heartRateMax | number : '1.2-2'}} </span>
+                            <fa-icon [icon]="faArrowUp"></fa-icon>
+                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -46,5 +85,7 @@
             </div>
         </div>
     </div>
-   
+
+</section>
+
 </section>

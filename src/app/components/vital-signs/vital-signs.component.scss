@@ -1,19 +1,54 @@
 @import "../../../styles.scss";
 
-.heart{
+.heart {
     height: 30vh;
     background: $white;
 }
-.blood{
+.blood {
     height: 20vh;
     background: $white;
 }
-.theme-default{
+.theme-default {
     color: red !important;
 }
-.card{
-    h5,.heading{
+.card {
+    h5,
+    .heading {
         font-weight: 600;
     }
-    
+}
+select {
+    border: 1px solid #007ad9;
+    background: #007ad9;
+    color: white;
+    border-radius: 12px;
+    padding: 2px 17px;
+    font-size: 11px;
+}
+.chartLabel {
+    text-align: center;
+    color: #000;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+.heartImg {
+    text-align: center;
+    fa-icon {
+        color: #dc3545;
+        font-size: 8vw;
+    }
+}
+.minMax{
+    fa-icon{
+        color: &black;
+    }
+}
+.loader{
+    width: 95%;
+    height: 84%;
+    p{
+        top: 51%;
+        left: 46%;
+        letter-spacing: 1px;
+    }
 }

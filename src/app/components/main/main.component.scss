@@ -37,3 +37,26 @@
         border: 1px solid #3498db;
     }
 }
+.option{
+    height: 6vw;
+    margin: 8px 0;
+    padding: 10px;
+    cursor: pointer;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow:  rgba(0, 0, 0, 0.1) 0px 3px 5px 0px;
+    p{
+        font-size: 12px;
+        margin: 0;
+        font-weight: 500;
+    }
+    h4{
+        padding: 2px;
+        font-weight: 400;
+    color: #005b9f;
+    }
+    .ctr{
+        line-height: 4vw;
+    text-align: center;
+    }
+}

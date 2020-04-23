@@ -8,6 +8,7 @@ export class ConfigUrl {
     signUpUrl: any;
     signInUrl: any;
     reset: any;
+    patientInfo: any;
     patientId:any;
 
     constructor() {
@@ -18,6 +19,8 @@ export class ConfigUrl {
         //reset password
         this.reset = '/Care/resetPassword';
         //get patient
-        this.patientId ='/Care/dbs/PatientVitals/colls/CaliberBBContainer'
+        this.patientId ='/Care/dbs/PatientVitals/colls/CaliberBBContainer';
+        //get patient Info
+        this.patientInfo = '/Care/dbs/PatientVitals/colls/PatientInfo';
     }
 }

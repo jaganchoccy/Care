@@ -1,37 +1,75 @@
 
         <div class="row patient">
-            <div class="col-6">
-                <div>
-                    <label>Name:</label>
+            <div class="col-4">
+                <div class="item">
+                    <label>Patient Name:</label>
                     <span>XXXXXX</span>
                 </div>
-                <div>
-                    <label>PatientID:</label>
-                    <span>23</span>
+                <div class="item">
+                    <label>Patient ID:</label>
+                    <span class="light">23</span>
                 </div>
-                <div>
+                <div class="item">
                     <label>Age:</label>
                     <span>25</span>
                 </div>
-                <div>
+                <div class="item">
                     <label>Gender:</label>
                     <span>Male</span>
                 </div>
-                <div>
-                    <label>B Group:</label>
-                    <span>O+</span>
-                </div>
             </div>
-            <div class="col-6">
-                <div>
-                    <label>Mother Name:</label>
+            <div class="col-5">
+                <div class="item">
+                    <label>Contact no:</label>
                     <span>YYYYYYY</span>
                 </div>
-                <div>
-                    <label>Address:</label>
+                <div class="item">
+                    <label>Emergency contact no</label>
                     <span>Mountain view,CL</span>
                 </div>
-
+                <div class="item">
+                    <label>Address:</label>
+                    <span>Male</span>
+                </div>
+            </div>
+            <div class="col-3 patImg">
+                <img  src="../../../assets/images/user.png" alt="userImg">
             </div>
         </div>
 
+        <section class="appointments"> 
+            <div>
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-md-6">
+                        <h6>Patient appoinments details:</h6>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="term" >
+                    </div>
+                </div>
+                
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th>Date</th>
+                              <th>Status</th>
+                              <th>Prescription Id</th>
+                              <th>Doctor Name</th>
+                              <th>Doctor Id</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor = "let item of items | filter:term">
+                                <td>{{item.AppointmentDate}}</td>
+                                <td>{{item.Status}}</td>
+                                <td>{{item.PrescriptionId || 'No data'}}</td>
+                                <td>{{item.DoctorName}}</td>
+                                <td>{{item.DoctorId}}</td>
+                              </tr>
+                          </tbody>
+                    </table>
+                </div>
+         
+            </div> 
+        </section>
