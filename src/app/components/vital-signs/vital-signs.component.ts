@@ -4,7 +4,7 @@ import { Label } from 'ng2-charts';
 import { Router } from '@angular/router';
 import { ShareDataService } from '../../CommonServices/share-data.service';
 import { vitalService } from './vital-signs.service';
-import { faHeartbeat, faArrowDown,faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faHeartbeat, faArrowDown,faArrowUp, faBurn } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-vital-signs',
@@ -22,6 +22,7 @@ export class VitalSignsComponent implements OnInit {
   heartRateMax:any;
   heart = faHeartbeat;
   faArrowDown =faArrowDown;
+  faBurn = faBurn;
   faArrowUp =faArrowUp;
 
   public barChartOptions: ChartOptions = {
@@ -44,6 +45,15 @@ export class VitalSignsComponent implements OnInit {
   bodyTempLabel: any[] = [];
   byDate: string;
   loader: boolean;
+  getBloodPre: any[];
+  getBloodSys: any[];
+  getBloodDia: any[];
+  bloodPreSysAvg: number;
+  bloodPreSysMin: number;
+  bloodPreDiaAvg: number;
+  bloodPreDiaMin: number;
+  bloodPreDiaMax: number;
+  bloodPreSysMax: number;
 
   constructor(private _shareData: ShareDataService, private _route: Router, private _patientS: vitalService, ) {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
@@ -79,6 +89,7 @@ export class VitalSignsComponent implements OnInit {
           if (this.getVitalDetails.length != 0) {
             this.bodyTemp();
             this.heartRate();
+            this.bloodPressure();
           }
         }
       });
@@ -128,8 +139,25 @@ export class VitalSignsComponent implements OnInit {
 
 
 
+//blood presure
+  bloodPressure(){
+    this.getBloodSys = [];
+    this.getBloodDia = [];
+    this.getVitalDetails.forEach(ele => {
+      this.getBloodSys.push(ele.bpsystole);
+      this.getBloodDia.push(ele.bpdiastole);
+    })
+    //sys
+    this.bloodPreSysAvg = this.getBloodSys.reduce((a,b) => a + b, 0) / this.getBloodSys.length
+    this.bloodPreSysMax = Math.max(...this.getBloodSys);
+    this.bloodPreSysMin = Math.min(...this.getBloodSys);
+    //dia
+    this.bloodPreDiaAvg = this.getBloodDia.reduce((a,b) => a + b, 0) / this.getBloodDia.length
+    this.bloodPreDiaMax = Math.max(...this.getBloodDia);
+    this.bloodPreDiaMin = Math.min(...this.getBloodDia);
+    
 
-
+  }
 
 
 

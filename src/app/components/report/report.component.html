@@ -1,0 +1,49 @@
+<section class="report create">
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1"><b>Notes:</b></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="col-6">
+            <form>
+                <div class="form-group">
+                  <label for="exampleFormControlFile1"><b>Upload File:</b></label>
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+            </form>
+            <div class="text-right">
+                <button pButton type="button" label=" + New Report" class="ui-button-rounded"></button>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="report">
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-md-6">
+            <h6>Reports:</h6>
+        </div>
+        <div class="col-md-6 text-right">
+            <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="term" >
+        </div>
+    </div>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Report</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor = "let item of reportData">
+                    <td>{{item.reportDate}}</td>
+                    <td>{{item.reportId || 'no data'}}</td>
+                    <td>{{item?.notes || 'no data'}}</td>
+                  </tr>
+              </tbody>
+        </table>
+    </div>    
+</section>

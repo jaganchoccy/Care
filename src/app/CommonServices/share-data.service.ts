@@ -6,6 +6,9 @@ import { Injectable } from '@angular/core';
 export class ShareDataService {
 
   patientId:any;
+  patientInfo: any;
+  scheduleId:any;
+  patientData: any;
 
   constructor() { }
 
@@ -17,4 +20,25 @@ export class ShareDataService {
     return this.patientId;
   }
 
+  setPatientInfo(data:any){
+    this.patientInfo = data;
+  }
+
+  getPatientInfo(){
+    return this.patientInfo;
+  }
+
+  setSchedule(val:any){
+    this.scheduleId = val;
+  }
+
+  getSchedule(){
+    return this.scheduleId;
+  }
+  setPatientData(data:any){
+    this.patientData = data;
+  }
+  getPatientData(){
+    return this.patientData;
+  }
 }

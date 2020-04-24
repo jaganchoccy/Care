@@ -62,12 +62,12 @@
                     </div>
                     <div class="row minMax">
                         <div class="col-md-6 text-left">
-                            <span><b>Low &nbsp;</b> {{heartRateMin | number : '1.2-2'}} </span>
+                            <span><b>MIN &nbsp;</b> {{heartRateMin | number : '1.2-2'}} </span>
                             <fa-icon [icon]="faArrowDown"></fa-icon>
                             
                         </div>
                         <div class="col-md-6 text-right">
-                            <span><b>High &nbsp;</b> {{heartRateMax | number : '1.2-2'}} </span>
+                            <span><b>MAX &nbsp;</b> {{heartRateMax | number : '1.2-2'}} </span>
                             <fa-icon [icon]="faArrowUp"></fa-icon>
                             
                         </div>
@@ -76,10 +76,31 @@
             </div>
             <div class="card container-fluid" style="margin-top: 1vw;">
                 <div class="blood">
-                    <div class="heading">Blood pressure</div>
-                    <div class="float-right">
-                        <h1 style="color: red;">54</h1>
-                        <h6>BPM</h6>
+                    <div class="heading">Blood Pressure <fa-icon [icon]="faBurn"></fa-icon></div>
+                    <div class="row" style="padding:20px 0;">
+                        <div class="col-md-6 float-right">
+                            <p>Systolic</p>
+                            <h4 style="color: red;text-align:center;">{{bloodPreSysAvg | number : '1.2-2'}}<sub>mmHg</sub></h4>
+                        </div>
+                        <div class="col-md-6 float-right">
+                            <p class="text-center">Diastolic</p>
+                            <h4 style="color: red;text-align:center;">{{bloodPreDiaAvg | number : '1.2-2'}}<sub>mmHg</sub></h4>
+                            
+                        </div>
+                    </div>
+                    <div class="row minMax">
+                        <div class="col-md-3 text-left">
+                            <span><b>MAX &nbsp;</b> {{bloodPreSysMax | number : '1.2-2'}} </span>
+                        </div>
+                        <div class="col-md-3 text-left">
+                            <span><b>MIN &nbsp;</b> {{bloodPreSysMin | number : '1.2-2'}} </span>
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <span><b>MAX &nbsp;</b> {{bloodPreDiaMax | number : '1.2-2'}} </span> 
+                        </div>
+                        <div class="col-md-3 text-right">
+                            <span><b>MIN &nbsp;</b> {{bloodPreDiaMin | number : '1.2-2'}} </span>
+                        </div>
                     </div>
                 </div>
             </div>

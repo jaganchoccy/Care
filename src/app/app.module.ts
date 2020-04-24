@@ -40,6 +40,8 @@ import { VitalSignsComponent } from './components/vital-signs/vital-signs.compon
 import { ActivitiesComponent } from './components/activities/activities.component';
 import { AppointHistComponent } from './components/appoint-hist/appoint-hist.component';
 import { MediDataComponent } from './components/medi-data/medi-data.component';
+import { ReportComponent } from './components/report/report.component';
+import { AppmtDetailsComponent } from './components/appmt-details/appmt-details.component';
 
 
 
@@ -59,6 +61,8 @@ import { MediDataComponent } from './components/medi-data/medi-data.component';
     ActivitiesComponent,
     AppointHistComponent,
     MediDataComponent,
+    ReportComponent,
+    AppmtDetailsComponent,
   ],
   imports: [
     BrowserModule,

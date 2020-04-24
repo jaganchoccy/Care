@@ -1,12 +1,21 @@
 @import "../../../styles.scss";
 
 .heart {
-    height: 30vh;
     background: $white;
 }
 .blood {
-    height: 20vh;
     background: $white;
+    fa-icon {
+        color: #dc3545;
+    }
+    p{
+        text-align: center;
+    font-size: 12px;
+    padding: 5px 0;
+    }
+    .minMax{
+        font-size: 12px;
+    }
 }
 .theme-default {
     color: red !important;
@@ -16,6 +25,11 @@
     .heading {
         font-weight: 600;
     }
+}
+sub{
+    font-size: 10px;
+    font-weight: 400;
+    color: #000;
 }
 select {
     border: 1px solid #007ad9;
@@ -35,7 +49,7 @@ select {
     text-align: center;
     fa-icon {
         color: #dc3545;
-        font-size: 8vw;
+        font-size: 7vw;
     }
 }
 .minMax{

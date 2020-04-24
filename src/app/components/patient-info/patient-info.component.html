@@ -1,75 +1,117 @@
+<section>
+    <div class="loader" *ngIf="loader">
+        <p-progressSpinner [style]="{width: '30px', height: '30px'}" strokeWidth="6" fill="#fff" animationDuration="5s"></p-progressSpinner>
+    <P>Data loading..</P>
+    </div>
 
         <div class="row patient">
             <div class="col-4">
                 <div class="item">
                     <label>Patient Name:</label>
-                    <span>XXXXXX</span>
+                    <span>{{patientInfo?.name}}</span>
                 </div>
                 <div class="item">
                     <label>Patient ID:</label>
-                    <span class="light">23</span>
+                    <span class="light">{{patientInfo?.patientid}}</span>
                 </div>
                 <div class="item">
-                    <label>Age:</label>
-                    <span>25</span>
+                    <label>DOB:</label>
+                    <span>{{patientInfo?.dob}}</span>
                 </div>
                 <div class="item">
                     <label>Gender:</label>
-                    <span>Male</span>
+                    <span>{{patientInfo?.gender}}</span>
                 </div>
             </div>
             <div class="col-5">
                 <div class="item">
                     <label>Contact no:</label>
-                    <span>YYYYYYY</span>
+                    <span>{{contact}}</span>
                 </div>
                 <div class="item">
                     <label>Emergency contact no</label>
-                    <span>Mountain view,CL</span>
+                    <span>{{em}}</span>
                 </div>
                 <div class="item">
                     <label>Address:</label>
-                    <span>Male</span>
+                    <span>{{patientInfo?.address}}</span>
                 </div>
             </div>
             <div class="col-3 patImg">
-                <img  src="../../../assets/images/user.png" alt="userImg">
+                <img  src={{imageUrl}} alt="userImg">
             </div>
         </div>
 
-        <section class="appointments"> 
-            <div>
-                <div class="row" style="margin-bottom: 10px;">
-                    <div class="col-md-6">
-                        <h6>Patient appoinments details:</h6>
+        <section class="appointments">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <div class="col-md-6">
+                            <h6>Patient Schedule details:</h6>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="schedule" >
+                        </div>
                     </div>
-                    <div class="col-md-6 text-right">
-                        <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="term" >
+                    
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                  <th>Prescription Id</th>
+                                  <th>Doctor Name</th>
+                                  <th>Doctor Id</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor = "let item of patientSchedule | filter:schedule">
+                                    <td class="click" (click)=selectedView(item.appID)>{{item.AppointmentDate}}</td>
+                                    <td>{{item.Status}}</td>
+                                    <td>{{item.PrescriptionId || 'No data'}}</td>
+                                    <td>{{item.DoctorName}}</td>
+                                    <td>{{item.DoctorId}}</td>
+                                  </tr>
+                                  
+                              </tbody>
+                        </table>
                     </div>
                 </div>
-                
-                <div>
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                              <th>Date</th>
-                              <th>Status</th>
-                              <th>Prescription Id</th>
-                              <th>Doctor Name</th>
-                              <th>Doctor Id</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                              <tr *ngFor = "let item of items | filter:term">
-                                <td>{{item.AppointmentDate}}</td>
-                                <td>{{item.Status}}</td>
-                                <td>{{item.PrescriptionId || 'No data'}}</td>
-                                <td>{{item.DoctorName}}</td>
-                                <td>{{item.DoctorId}}</td>
-                              </tr>
-                          </tbody>
-                    </table>
+                <div class="col-md-6">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <div class="col-md-6">
+                            <h6>Patient appoinments history:</h6>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="history" >
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                  <th>Prescription Id</th>
+                                  <th>Doctor Name</th>
+                                  <th>Doctor Id</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor = "let item of patientExp | filter:history">
+                                    <td>{{item.AppointmentDate}}</td>
+                                    <td>{{item.Status}}</td>
+                                    <td>{{item.PrescriptionId || 'No data'}}</td>
+                                    <td>{{item.DoctorName}}</td>
+                                    <td>{{item.DoctorId}}</td>
+                                  </tr>
+                                  
+                              </tbody>
+                        </table>
+                    </div>
                 </div>
-         
-            </div> 
+            </div>
         </section>
+    </section>

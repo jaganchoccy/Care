@@ -19,6 +19,15 @@
         font-size: 12px;
     }
 }
+.click{
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: underline;
+    &:hover{
+     color:$appColor;   
+    }
+}
 .appointments{
     margin: 2vw 2vw 0;
     background: #fff;
@@ -58,4 +67,13 @@
     margin: 0 10px;
     border-radius: 10px;
     padding: 2px 4px;
+}
+.loader{
+    width: 95%;
+    height: 84%;
+    p{
+        top: 51%;
+        left: 46%;
+        letter-spacing: 1px;
+    }
 }
