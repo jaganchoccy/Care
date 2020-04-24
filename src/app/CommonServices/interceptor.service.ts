@@ -12,7 +12,7 @@ export class InterceptorService implements HttpInterceptor {
         console.log(gmt)
         const duplicate = req.clone({
             //https://gentle-brushlands-56872.herokuapp.com
-            url: "http://localhost:6200" + req.url,
+            url: "https://caliberbbwebapp.azurewebsites.net" + req.url,
             setHeaders: {
                 'Content-Type': 'application/json',
                 'Authorization': '',
