@@ -11,6 +11,7 @@ export class AppmtDetailsComponent implements OnInit {
   appmtSchdId: any;
   patientDetails: any;
   appmtRecord: any;
+  term:any;
 
   constructor(private _shareData: ShareDataService,private _route:Router) { }
 
