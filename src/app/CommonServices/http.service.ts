@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 //preparing header for HTTP call
 const httpOtions = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json; charset=utf-8'
+    'Content-Type': 'application/json; charset=utf-8',
   })
 };
 
@@ -24,13 +24,11 @@ export class HTTPService {
 
   //GET method for HTTP call
   makeHTTPGETRequest(url: string): Observable<any> {
-    
     return this.http.get(url, httpOtions).pipe(map(this.extractData));
   }
 
   //POST method for HTTP call
   makeHTTPPOSTRequest(url: string, data?: any): Observable<any> {
-    
     return this.http.post<any>(url, JSON.stringify(data), httpOtions).pipe(map(this.extractData));
   }
   

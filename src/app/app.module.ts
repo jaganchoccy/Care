@@ -21,7 +21,7 @@ import { ButtonModule } from 'primeng/button';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TabViewModule } from 'primeng/tabview';
 import { AutoCompleteModule } from 'primeng/autocomplete';
-import {TableModule} from 'primeng/table';
+import { TableModule } from 'primeng/table';
 //service
 import { ShareDataService } from './CommonServices/share-data.service';
 //Components
@@ -41,7 +41,9 @@ import { ActivitiesComponent } from './components/activities/activities.componen
 import { AppointHistComponent } from './components/appoint-hist/appoint-hist.component';
 import { MediDataComponent } from './components/medi-data/medi-data.component';
 import { ReportComponent } from './components/report/report.component';
-import { AppmtDetailsComponent } from './components/appmt-details/appmt-details.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { DoctorListComponent } from './components/doctor-list/doctor-list.component';
+import { PatientListComponent } from './components/patient-list/patient-list.component';
 
 
 
@@ -62,7 +64,9 @@ import { AppmtDetailsComponent } from './components/appmt-details/appmt-details.
     AppointHistComponent,
     MediDataComponent,
     ReportComponent,
-    AppmtDetailsComponent,
+    NotificationComponent,
+    DoctorListComponent,
+    PatientListComponent,
   ],
   imports: [
     BrowserModule,

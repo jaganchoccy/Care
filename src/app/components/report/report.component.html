@@ -1,4 +1,5 @@
 <section class="report create">
+    <h6 class="text-left">Add New Report</h6>
     <div class="row">
         <div class="col-6">
             <div class="form-group">
@@ -22,7 +23,7 @@
 <section class="report">
     <div class="row" style="margin-bottom: 10px;">
         <div class="col-md-6">
-            <h6>Reports:</h6>
+            <h6 class="text-left">Reports:</h6>
         </div>
         <div class="col-md-6 text-right">
             <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="term" >
@@ -40,7 +41,7 @@
               <tbody>
                   <tr *ngFor = "let item of reportData">
                     <td>{{item.reportDate}}</td>
-                    <td>{{item.reportId || 'no data'}}</td>
+                    <td><fa-icon *ngIf="item.reportId != null" [icon]="faDownload"></fa-icon> &nbsp;{{item.reportId || 'no data'}}</td>
                     <td>{{item?.notes || 'no data'}}</td>
                   </tr>
               </tbody>

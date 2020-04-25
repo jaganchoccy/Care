@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShareDataService } from '../../CommonServices/share-data.service';
+import {faDownload } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-report',
@@ -9,6 +10,7 @@ import { ShareDataService } from '../../CommonServices/share-data.service';
 export class ReportComponent implements OnInit {
 
   patientInfo: any;
+  faDownload=faDownload;
   reportData: any;
   term:any;
   currentDate = new Date();

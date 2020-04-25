@@ -26,11 +26,11 @@
             <div class="col-5">
                 <div class="item">
                     <label>Contact no:</label>
-                    <span>{{contact}}</span>
+                    <span>{{patientInfo?.contactno}}</span>
                 </div>
                 <div class="item">
                     <label>Emergency contact no</label>
-                    <span>{{em}}</span>
+                    <span>{{patientInfo?.emergencycontactno}}</span>
                 </div>
                 <div class="item">
                     <label>Address:</label>
@@ -38,16 +38,16 @@
                 </div>
             </div>
             <div class="col-3 patImg">
-                <img  src={{imageUrl}} alt="userImg">
+                <img [src]="userImg"  alt="userIMG"/>
             </div>
         </div>
 
         <section class="appointments">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-md-6">
-                            <h6>Patient Schedule details:</h6>
+                            <h6 class="text-left">Scheduled Details:</h6>
                         </div>
                         <div class="col-md-6 text-right">
                             <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="schedule" >
@@ -62,50 +62,15 @@
                                   <th>Status</th>
                                   <th>Prescription Id</th>
                                   <th>Doctor Name</th>
-                                  <th>Doctor Id</th>
+                                  
                                 </tr>
                               </thead>
                               <tbody>
                                   <tr *ngFor = "let item of patientSchedule | filter:schedule">
-                                    <td class="click" (click)=selectedView(item.appID)>{{item.AppointmentDate}}</td>
-                                    <td>{{item.Status}}</td>
+                                    <td class="click" (click)="openModal(template,item.appID)">{{item.AppointmentDate}}</td>
+                                    <td>{{item.Status}} <fa-icon [icon]="faCalendar"></fa-icon></td>
                                     <td>{{item.PrescriptionId || 'No data'}}</td>
                                     <td>{{item.DoctorName}}</td>
-                                    <td>{{item.DoctorId}}</td>
-                                  </tr>
-                                  
-                              </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="row" style="margin-bottom: 10px;">
-                        <div class="col-md-6">
-                            <h6>Patient appoinments history:</h6>
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="history" >
-                        </div>
-                    </div>
-                    
-                    <div>
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                  <th>Date</th>
-                                  <th>Status</th>
-                                  <th>Prescription Id</th>
-                                  <th>Doctor Name</th>
-                                  <th>Doctor Id</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                  <tr *ngFor = "let item of patientExp | filter:history">
-                                    <td>{{item.AppointmentDate}}</td>
-                                    <td>{{item.Status}}</td>
-                                    <td>{{item.PrescriptionId || 'No data'}}</td>
-                                    <td>{{item.DoctorName}}</td>
-                                    <td>{{item.DoctorId}}</td>
                                   </tr>
                                   
                               </tbody>
@@ -114,4 +79,51 @@
                 </div>
             </div>
         </section>
+    </section>
+
+
+    <section>
+        <ng-template #template>
+            <div class="modal-header">
+              <h6 class="modal-title pull-left">Scheduled Details</h6>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <section class="appointments" style="margin:0px;">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                          <th>Date</th>
+                                          <th>Status</th>
+                                          <th>Prescription Id</th>
+                                          <th>Doctor Name</th>
+                                          <th>Notes</th>
+                                          <th>Add Prescription</th>
+                                          <th></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                          <tr *ngFor = "let item of onlyScheduled | filter:schedule">
+                                            <td>{{item.AppointmentDate}}</td>
+                                            <td>{{item.Status}} <fa-icon [icon]="faCalendar"></fa-icon></td>
+                                            <td>{{item.PrescriptionId || 'No data'}}</td>
+                                            <td>{{item.DoctorName}}</td>
+                                            <td><textarea style="height:38px;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></td>
+                                            <td><input style="width: 100%;" type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                                            <td><button pButton type="button" label=" + New Report" class="ui-button-rounded"></button></td>
+                                          </tr>
+                                          
+                                      </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+          </ng-template>
     </section>

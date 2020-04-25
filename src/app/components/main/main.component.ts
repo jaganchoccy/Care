@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { ShareDataService } from '../../CommonServices/share-data.service';
-import {MainService} from './main.service';
+import { MainService } from './main.service';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -9,15 +11,16 @@ import {MainService} from './main.service';
 })
 export class MainComponent implements OnInit {
 
-  patientID:any;
+  patientID: any;
+  faUserPlus = faPlus;
 
-  constructor(private _shareData:ShareDataService,private _route:Router,private _patientS:MainService) { }
+  constructor(private _shareData: ShareDataService, private _route: Router, private _patientS: MainService) { }
 
-  
-  getPatientId(){
-  
+
+  getPatientId() {
+
     this._shareData.setPatientId(this.patientID);
-    if(this.patientID == undefined){
+    if (this.patientID == undefined) {
       this._route.navigateByUrl('/Search')
     }
     this._route.navigateByUrl('/patientDetail')

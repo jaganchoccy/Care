@@ -1,1 +1,84 @@
-<p>appoint-hist works!</p>
+<section class="row history">
+    <div class="col-md-12">
+        <div class="row" style="margin-bottom: 10px;">
+            <div class="col-md-6">
+                <h6 class="text-left">Appointment History:</h6>
+            </div>
+            <div class="col-md-6 text-right">
+                <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="history" >
+            </div>
+        </div>
+        
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Status</th>
+                      <th>Prescription Id</th>
+                      <th>Doctor Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor = "let item of patientHisty | filter:history">
+                        <td class="click" (click)="openModal(template,item.appID)">{{item.AppointmentDate}}</td>
+                        <td>
+                            <fa-icon *ngIf="item.Status == 'Done'" [icon]="Done"></fa-icon>
+                            <fa-icon *ngIf="item.Status == 'Expired'" [icon]="Expired"></fa-icon>
+                            &nbsp; {{item.Status}} 
+                        </td>
+                        <td><fa-icon *ngIf="item.PrescriptionId != null" [icon]="faDownload"></fa-icon> &nbsp;{{item.PrescriptionId || 'No data'}} </td>
+                        <td>{{item.DoctorName}}</td>
+                      </tr>
+                      
+                  </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section>
+    <ng-template #template>
+        <div class="modal-header">
+          <h6 class="modal-title pull-left">Appointment Details</h6>
+          <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <section class="appointments" style="margin:0px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                      <th>Date</th>
+                                      <th>Status</th>
+                                      <th>Prescription Id</th>
+                                      <th>Doctor Name</th>
+                                      <th>Notes</th>
+                                      <th>Add Prescription</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor = "let item of onlyScheduled | filter:schedule">
+                                        <td>{{item.AppointmentDate}}</td>
+                                        <td>{{item.Status}} <fa-icon [icon]="faCalendar"></fa-icon></td>
+                                        <td (click)="download(item.PrescriptionId)">{{item.PrescriptionId || 'No data'}}</td>
+                                        <td>{{item.DoctorName}}</td>
+                                        <td><textarea style="height: 38px;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></td>
+                                        <td><input style="width: 100%;" type="file" class="form-control-file" id="exampleFormControlFile1"></td>
+                                        <td><button pButton type="button" label=" + New Report" class="ui-button-rounded"></button></td> 
+                                      </tr>
+                                      
+                                  </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+      </ng-template>
+</section>
