@@ -5,17 +5,13 @@ import { HTTPService } from '../../CommonServices/http.service';
 @Injectable({
   providedIn: 'root'
 })
-export class patientInfoService {
+export class notificationService {
 
   constructor(private ConstURL: ConfigUrl, private httpService: HTTPService) { }
 
-  //getPatientInfo Api
-  getPatientInfo(id) {
-    let patientUrl = this.ConstURL.patientInfo;
-    let data = {
-      id:id
-    }
-    debugger
-    return this.httpService.makeHTTPPOSTRequest(patientUrl,data);
+  //get all NotificationData Api
+  getNotificationData() {
+    let alert = this.ConstURL.alertUrl;
+    return this.httpService.makeHTTPGETRequest(alert);
   }
 }

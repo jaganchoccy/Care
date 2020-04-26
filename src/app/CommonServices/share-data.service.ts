@@ -9,6 +9,7 @@ export class ShareDataService {
   patientInfo: any;
   scheduleId:any;
   patientData: any;
+  doctorData: any;
 
   constructor() { }
 
@@ -38,7 +39,17 @@ export class ShareDataService {
   setPatientData(data:any){
     this.patientData = data;
   }
+  
   getPatientData(){
     return this.patientData;
   }
+
+  setDoctorData(data:any){
+    this.doctorData = data;
+  }
+
+  getDoctorData(){
+    return this.doctorData;
+  }
+
 }

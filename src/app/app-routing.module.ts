@@ -10,6 +10,7 @@ import { PatientListComponent } from './components/patient-list/patient-list.com
 import { DoctorListComponent } from './components/doctor-list/doctor-list.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { PatientDetailComponent } from './components/patient-detail/patient-detail.component';
+import { AddNewPatientsComponent} from './components/add-new-patients/add-new-patients.component';
 
 const appRoutes: Routes = [
   //{ path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   { path: 'notification', component: NotificationComponent },
   { path: 'patientList', component: PatientListComponent },
   { path: 'doctorList', component: DoctorListComponent },
+  { path: 'addPatient', component: AddNewPatientsComponent },
   { path: '**', component: PageNotFoundComponent }
 ];
 

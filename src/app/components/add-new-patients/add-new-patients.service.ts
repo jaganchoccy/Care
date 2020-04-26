@@ -5,18 +5,16 @@ import { HTTPService } from '../../CommonServices/http.service';
 @Injectable({
   providedIn: 'root'
 })
-export class MainService {
+export class NewPatientService {
 
   constructor(private ConstURL: ConfigUrl, private httpService: HTTPService) { }
 
-  getAllPatientData(){
-    let patientUrl = this.ConstURL.allPatientData;
-    return this.httpService.makeHTTPGETRequest(patientUrl);
-  }
-
-  getAllDoctorData(){
-    let patientUrl = this.ConstURL.allDoctorData;
-    return this.httpService.makeHTTPGETRequest(patientUrl);
+  addNewPatientApi(value){
+    let patientUrl = this.ConstURL.addNewPatient;
+    let data = {
+        newData:value
+    }
+    return this.httpService.makeHTTPPOSTRequest(patientUrl,data);
   }
 
 

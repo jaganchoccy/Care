@@ -1,1 +1,44 @@
-<p>patient-list works!</p>
+<section class="patientList">
+    <section class="appointments">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-md-6">
+                        <h6 class="text-left">Patient details:</h6>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="searchPatient" >
+                    </div>
+                </div>
+                
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>DOB</th>
+                              <th>Contact no</th>
+                              <th>Emergency contact</th>
+                              <th>Address</th>
+                              <th>Appoinment Date</th>
+                              <th>status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor = "let item of allPatient | filter:searchPatient">
+                                <td>{{item.name}}</td>
+                                <td>{{item.dob}}</td>
+                                <td>{{item.contactno}}</td>
+                                <td>{{item.emergencycontactno}}</td>
+                                <td>{{item.address}}</td>
+                                <td>{{item.appointments[0].AppointmentDate}} </td>
+                                <td>{{item.appointments[0].Status}}</td>
+                              </tr>
+                              
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

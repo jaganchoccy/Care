@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faSearch, faChalkboardTeacher ,faLink,faUser } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faChalkboardTeacher ,faLink,faUser,faHome,faBell } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-toolbar',
@@ -11,6 +11,8 @@ export class ToolbarComponent implements OnInit {
   faSearch = faSearch;
   faTech = faChalkboardTeacher;
   tutor = faUser;
+  faBell=faBell;
+  faHome =faHome;
   course = faLink;
   SearchValue:any;
 

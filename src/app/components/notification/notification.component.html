@@ -1,1 +1,44 @@
-<p>notification works!</p>
+<section class="notification">
+    <div class="loader" *ngIf="loader">
+        <p-progressSpinner [style]="{width: '30px', height: '30px'}" strokeWidth="6" fill="#fff" animationDuration="5s"></p-progressSpinner>
+    </div>
+    <section class="appointments">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row" style="margin-bottom: 10px;">
+                    <div class="col-md-6">
+                        <h6 class="text-left">Alerts</h6>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <span>Search &nbsp;</span><input type="text" placeholder="Type here" [(ngModel)]="notification" >
+                    </div>
+                </div>
+                
+                <div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                              <th>Bpdiastole</th>
+                              <th>Bpsystole</th>
+                              <th>Heart Rate</th>
+                              <th>Body Temperature</th>
+                              <th>Date/Time</th>
+                              <th>View</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor = "let item of notificationData.slice().reverse() | filter:notification">
+                                <td>{{item.bpdiastole | number : '1.2-2'}}</td>
+                                <td>{{item.bpsystole | number : '1.2-2'}}</td>
+                                <td>{{item.heartrate | number : '1.2-2'}}</td>
+                                <td>{{item.temperature | number : '1.2-2'}}</td>
+                                <td>{{timeFormat(item.EventProcessedUtcTime)}}</td>
+                                <td (click)=viewPatient(item.patientid)><fa-icon [icon]="faEye"></fa-icon>{{item.patientid}}</td>
+                              </tr>
+                          </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

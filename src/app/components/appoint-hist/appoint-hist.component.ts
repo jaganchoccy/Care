@@ -17,6 +17,7 @@ export class AppointHistComponent implements OnInit {
   faDownload = faDownload;
   onlyScheduled: any;
   presImg:any;
+  history:any;
 
   constructor(private _shareData: ShareDataService,private modalService: BsModalService) { }
 

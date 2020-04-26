@@ -63,9 +63,9 @@
                                     </tr>
                                   </thead>
                                   <tbody>
-                                      <tr *ngFor = "let item of onlyScheduled | filter:schedule">
+                                      <tr *ngFor = "let item of onlyScheduled">
                                         <td>{{item.AppointmentDate}}</td>
-                                        <td>{{item.Status}} <fa-icon [icon]="faCalendar"></fa-icon></td>
+                                        <td>{{item.Status}}</td>
                                         <td (click)="download(item.PrescriptionId)">{{item.PrescriptionId || 'No data'}}</td>
                                         <td>{{item.DoctorName}}</td>
                                         <td><textarea style="height: 38px;" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea></td>

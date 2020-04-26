@@ -177,3 +177,21 @@ table{
   max-width: 90% !important;
   width: 90% !important;
 }
+
+.toast-message{
+  font-size: 12px;
+}
+.TopMsg{
+  float: right !important;
+}
+.next{
+  background: #fff;
+    color: #BD362F;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 12px;
+    display: inline-block;
+}
+.toast-error {
+  background-image: none
+}

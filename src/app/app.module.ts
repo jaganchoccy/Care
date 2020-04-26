@@ -44,6 +44,7 @@ import { ReportComponent } from './components/report/report.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { DoctorListComponent } from './components/doctor-list/doctor-list.component';
 import { PatientListComponent } from './components/patient-list/patient-list.component';
+import { AddNewPatientsComponent } from './components/add-new-patients/add-new-patients.component';
 
 
 
@@ -67,6 +68,7 @@ import { PatientListComponent } from './components/patient-list/patient-list.com
     NotificationComponent,
     DoctorListComponent,
     PatientListComponent,
+    AddNewPatientsComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,10 +82,11 @@ import { PatientListComponent } from './components/patient-list/patient-list.com
     TabViewModule,
     ModalModule.forRoot(),
     ToastrModule.forRoot({
-      timeOut: 0,
+      extendedTimeOut:0,
       positionClass: 'toast-top-right',
       preventDuplicates: true,
       enableHtml: true,
+      disableTimeOut:true,
       closeButton:true
     }),
     ReactiveFormsModule,

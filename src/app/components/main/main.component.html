@@ -20,13 +20,20 @@
                         <div class="col-md-6">
                             <div class="option">
                                 <p>Total No of patients</p>
-                                <h4 class="text-center">1228</h4>
+                                <h4 *ngIf="loader">
+                                    <p-progressSpinner [style]="{width: '22px', height: '22px'}" strokeWidth="3" fill="#fff" animationDuration="5s"></p-progressSpinner>
+                                </h4>
+                                <h4 class="text-center" routerLink="/patientList">{{viewAllPatient?.length}}</h4>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="option">
                                 <p>Doctors</p>
-                                <h4 class="text-center">32</h4>
+                                <h4 *ngIf="loaderDoctor">
+                                    <p-progressSpinner [style]="{width: '22px', height: '22px'}" strokeWidth="3" fill="#fff" animationDuration="5s"></p-progressSpinner>
+                                </h4>
+                                <h4 class="text-center" routerLink="/doctorList">{{viewAllDoctor?.length}}</h4>
+                                
                             </div>
                         </div>
                     </div>
@@ -38,7 +45,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="option">
-                                <p class="ctr">+ Add New Patient</p>
+                                <p class="ctr" routerLink="/addPatient">+ Add New Patient</p>
                             </div>
                         </div>
                     </div>

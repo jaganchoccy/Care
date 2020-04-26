@@ -1,0 +1,62 @@
+<section class="newPatient appointments">
+    <h5 class="text-left">Create New Patient</h5>
+    <div class="container-fluid">
+    <form [formGroup]="patientForm" (ngSubmit)="onSubmit()">
+        <div class="form-row row">
+            <div class="form-group col-md-4">
+                <label>Patientid</label>
+                <input type="text" formControlName="patientid" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.patientid.errors }" />
+                <div *ngIf="submitted && f.patientid.errors" class="invalid-feedback">
+                    <div *ngIf="f.patientid.errors.required">Patientid is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Name</label>
+                <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+                <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Name is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>DOB</label>
+                <input type="text" formControlName="dob" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dob.errors }" />
+                <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                    <div *ngIf="f.dob.errors.required">DOB is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Address</label>
+                <input type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" />
+                <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                    <div *ngIf="f.address.errors.required">Addressis required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Contact no</label>
+                <input type="number" formControlName="contactno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contactno.errors }" />
+                <div *ngIf="submitted && f.contactno.errors" class="invalid-feedback">
+                    <div *ngIf="f.contactno.errors.required">Contact is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Emergency contact</label>
+                <input type="number" formControlName="emergencycontactno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emergencycontactno.errors }" />
+                <div *ngIf="submitted && f.emergencycontactno.errors" class="invalid-feedback">
+                    <div *ngIf="f.emergencycontactno.errors.required">Emergency contact is required</div>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Gender</label>
+                <input type="text" formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }" />
+                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                    <div *ngIf="f.gender.errors.required">Gender is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button pButton type="submit" label=" + Create" class="ui-button-rounded"></button>&nbsp;&nbsp;
+            <button pButton type="button" label="Cancel" class="ui-button-rounded" type="reset" (click)="onReset()"></button>
+        </div>
+    </form>
+</div>
+</section>
