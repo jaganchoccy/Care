@@ -3,24 +3,12 @@
         <div class="col-6 col-md-2">
             <span class="logo" routerLink="/Search"><b>P</b>ersonal Care</span>
         </div>
-       <div class="col-md-1">
-           <span></span>
+       <div class="col-md-6"></div>
+       <div class="col-md-2 text-right">
+           <span routerLink="/Search"><fa-icon [icon]="faHome"></fa-icon> &nbsp; Home</span>
        </div>
-       <div class="col-md-4">
-       </div>
-       <div class="col-md-2">
-           <span></span>
-       </div>
-       <div class="col-6"></div>
-        <!-- <div class="col-6 col-md-3">
-            <div class="row">
-                <div class="col-6 text-right" routerLink="/signIn" style="padding-right: 0px;">
-                    <button type="button" class="sign">Sign In</button>
-                </div>
-                <div class="col-6" routerLink="/signUp">
-                    <button type="button" class="sign">Sign Up</button>
-                </div>
-            </div>
-        </div> -->
+       <div class="col-md-2 text-left">
+        <span routerLink="/notification"><fa-icon [icon]="faBell"></fa-icon> &nbsp; Alerts</span>
+    </div>
     </div>
 </nav>

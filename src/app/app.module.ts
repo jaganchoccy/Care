@@ -80,10 +80,11 @@ import { PatientListComponent } from './components/patient-list/patient-list.com
     TabViewModule,
     ModalModule.forRoot(),
     ToastrModule.forRoot({
-      timeOut: 6000,
-      positionClass: 'toast-top-center',
+      timeOut: 0,
+      positionClass: 'toast-top-right',
       preventDuplicates: true,
       enableHtml: true,
+      closeButton:true
     }),
     ReactiveFormsModule,
     HttpClientModule,
