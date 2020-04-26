@@ -11,14 +11,12 @@ export class InterceptorService implements HttpInterceptor {
         
         console.log(gmt)
         const duplicate = req.clone({
-            //https://caliberbbwebapp.azurewebsites.net
             url: "https://caliberbbwebapp.azurewebsites.net" + req.url,
             setHeaders: {
                 'Content-Type': 'application/json',
                 'Authorization': '',
                 'x-ms-version': '2015-12-16',
                 'x-ms-date': gmt,
-               
             },
 
         });
@@ -26,9 +24,9 @@ export class InterceptorService implements HttpInterceptor {
         return next.handle(duplicate)
             .pipe(
                 tap((result) => {
-                    console.log('through interceptor success')
+                    console.log('through interceptor success',duplicate)
                 }, (err) => {
-                    console.log('through interceptor error')
+                    console.log('through interceptor error',duplicate)
                 })
             )
     }
