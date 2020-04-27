@@ -60,8 +60,12 @@ onReset() {
 createNewPatient(value){
   this.loader = true;
   this._newPatientS.addNewPatientApi(value).subscribe(res => {
-    debugger
     this.loader = false;
+    if(res.data == 'success'){
+      alert(' New patient created successfully')
+    }else{
+      alert('Sorry, new patient is not created')
+    }
   });
 }
 

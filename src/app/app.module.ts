@@ -18,6 +18,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 //primeng
 import { ButtonModule } from 'primeng/button';
+import {FullCalendarModule} from 'primeng/fullcalendar';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TabViewModule } from 'primeng/tabview';
 import { AutoCompleteModule } from 'primeng/autocomplete';
@@ -79,6 +80,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     ChartsModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
+    FullCalendarModule,
     BsDatepickerModule.forRoot(),
     AppRoutingModule,
     TabViewModule,

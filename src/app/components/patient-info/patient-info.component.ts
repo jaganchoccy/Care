@@ -133,4 +133,10 @@ export class PatientInfoComponent implements OnInit {
     this._shareData.setSchedule(val);
     //this._route.navigateByUrl('/')
   }
+
+
+  ///inprogress
+  alertInprogress(){
+    alert('Add report is Under Construction')
+  }
 }

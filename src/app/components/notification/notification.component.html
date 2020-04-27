@@ -33,7 +33,7 @@
                                 <td>{{item.heartrate | number : '1.2-2'}}</td>
                                 <td>{{item.temperature | number : '1.2-2'}}</td>
                                 <td>{{timeFormat(item.EventProcessedUtcTime)}}</td>
-                                <td (click)=viewPatient(item.patientid)><fa-icon [icon]="faEye"></fa-icon>{{item.patientid}}</td>
+                                <td (click)=viewPatient(item.patientid)><fa-icon [icon]="faEye"></fa-icon></td>
                               </tr>
                           </tbody>
                     </table>

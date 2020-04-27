@@ -27,4 +27,9 @@ export class ReportComponent implements OnInit {
     this.reportData = data.reports;
   }
 
+   ///inprogress
+   alertInprogress(){
+    alert('Add report is Under Construction')
+  }
+
 }
