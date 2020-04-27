@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AppService } from './app-service';
 import { ToastrService } from 'ngx-toastr';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,6 +12,10 @@ import { ToastrService } from 'ngx-toastr';
 export class AppComponent {
   queueMsg: any;
   interval: any;
+  alertRecord: any;
+  showAlert: boolean;
+  noData: boolean = false;
+  vital: boolean = true;
   constructor(private _router: Router, private toastr: ToastrService, private _appS: AppService) {
 
   }
@@ -18,28 +23,21 @@ export class AppComponent {
   ngOnInit() {
     this.getAlertMsg();
     this.timer();
-    this.nextMsg();
   }
 
 
   timer() {
     this.interval = setInterval(() => {
-
-
+      this.getAlertMsg();
     }, 30000)
   }
 
 
   getAlertMsg() {
+    this.showAlert = false;
     this._appS.getAlertMsg().subscribe(res => {
-      debugger
-      let x = JSON.parse(JSON.stringify(res.data))
-      let encodeMsg = this.decodeUnicode(x[0].messageText)
-      let result = JSON.parse(encodeMsg);
-      var heart = result.heartrate.toFixed(2);
-      var temp = result.temperature.toFixed(2);
-      this.toastr.error(
-        "<div><b>Heart Rate : </b>" + heart + '</div>\n<div> <b>Body Temperature : </b>' + temp + '</div>\n <div><b>Patient ID: </b>' + result.patientid + '</div>');
+      this.showAlert = true;
+      this.toast(res)
     })
   }
 
@@ -55,7 +53,38 @@ export class AppComponent {
   nextMsg() {
     debugger
     this._appS.deleteAlertMsg().subscribe(res => {
-debugger
+      if (res.data.body == '') {
+        this.noData = true;
+        this.vital = false;
+      } else {
+        this.noData = false;
+        this.vital = true;
+        this.toast(res)
+      }
     })
   }
+
+  toast(res) {
+    debugger
+    if(res.data.length == 0 ){
+      this.noData = true;
+      this.vital = false;
+    }else{
+      this.noData = false;
+      this.vital = true;
+      let x = JSON.parse(JSON.stringify(res.data))
+    let encodeMsg = this.decodeUnicode(x[0].messageText)
+    let result = JSON.parse(encodeMsg);
+    
+    this.alertRecord = result;
+    }
+    
+  }
+
+
+  closeAlert() {
+    this.showAlert = false;
+    this.nextMsg();
+  }
+
 }

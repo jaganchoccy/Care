@@ -45,6 +45,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { DoctorListComponent } from './components/doctor-list/doctor-list.component';
 import { PatientListComponent } from './components/patient-list/patient-list.component';
 import { AddNewPatientsComponent } from './components/add-new-patients/add-new-patients.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -69,6 +70,7 @@ import { AddNewPatientsComponent } from './components/add-new-patients/add-new-p
     DoctorListComponent,
     PatientListComponent,
     AddNewPatientsComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

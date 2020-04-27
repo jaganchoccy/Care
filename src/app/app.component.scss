@@ -1,0 +1,19 @@
+.queueAlert{
+    background: #BD362F;
+    position: absolute;
+    z-index: 4000;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 12px #3a3e42b3;
+    color: #fff;
+    right: 15px;
+    top: 70px;
+    font-size: 12px;
+    width: 25vw;
+    .close{
+        position: absolute;
+        top:0px;
+        right: 10px;
+        cursor: pointer;
+    }
+}

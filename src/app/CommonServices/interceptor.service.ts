@@ -11,6 +11,7 @@ export class InterceptorService implements HttpInterceptor {
         
         console.log(gmt)
         const duplicate = req.clone({
+            //https://caliberbbwebapp.azurewebsites.net
             url: "https://caliberbbwebapp.azurewebsites.net" + req.url,
             setHeaders: {
                 'Content-Type': 'application/json',
