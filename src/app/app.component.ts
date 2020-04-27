@@ -51,7 +51,7 @@ export class AppComponent {
 
   //call deleted API
   nextMsg() {
-    debugger
+    
     this._appS.deleteAlertMsg().subscribe(res => {
       if (res.data.body == '') {
         this.noData = true;
@@ -65,7 +65,7 @@ export class AppComponent {
   }
 
   toast(res) {
-    debugger
+    
     if(res.data.length == 0 ){
       this.noData = true;
       this.vital = false;

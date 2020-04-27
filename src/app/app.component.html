@@ -4,10 +4,11 @@
     <div class="close" (click)="closeAlert()">x</div>
     <div *ngIf="vital">
         <div>
-            <span><b>Alert for critical Patient ID : </b>{{alertRecord?.patientid}}</span>
+            <span><b>Critical alert for Patient Id : </b>{{alertRecord?.patientid}}</span>
         </div>
-        <div><b>heart Rate : </b>{{alertRecord?.heartrate | number : '1.2-2'}}</div>
         <div><b>Body Temperature : </b>{{alertRecord?.temperature | number : '1.2-2'}}</div>
+        <div><b>Blood Pressure : </b>{{alertRecord?.bpsystole | number : '1.2-2'}}/{{alertRecord?.bpdiastole | number : '1.2-2'}}</div>
+        <div><b>HeartRate : </b>{{alertRecord?.heartrate | number : '1.2-2'}}</div>
     </div>
     <div *ngIf="noData">
         <div style="padding:10px;">No more Alerts..</div>

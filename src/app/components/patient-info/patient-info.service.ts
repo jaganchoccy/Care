@@ -15,7 +15,7 @@ export class patientInfoService {
     let data = {
       id:id
     }
-    debugger
+    
     return this.httpService.makeHTTPPOSTRequest(patientUrl,data);
   }
 }

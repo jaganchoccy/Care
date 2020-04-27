@@ -15,7 +15,7 @@ export class AddNewPatientsComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private _newPatientS:NewPatientService) { }
 
   ngOnInit() {
-    debugger
+    
     this.submitPatientForm()
   }
 
@@ -37,7 +37,7 @@ export class AddNewPatientsComponent implements OnInit {
   get f() { return this.patientForm.controls; }
 
   onSubmit() {
-    debugger
+    
     this.submitted = true;
 
     // stop here if form is invalid

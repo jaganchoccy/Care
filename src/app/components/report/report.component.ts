@@ -23,7 +23,7 @@ export class ReportComponent implements OnInit {
   }
 
   generateReport(data){
-    debugger
+    
     this.reportData = data.reports;
   }
 

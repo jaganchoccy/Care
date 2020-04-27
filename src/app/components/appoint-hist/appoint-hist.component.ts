@@ -22,7 +22,7 @@ export class AppointHistComponent implements OnInit {
   constructor(private _shareData: ShareDataService,private modalService: BsModalService) { }
 
   ngOnInit() {
-    debugger
+    
     let getPatientDetails = this._shareData.getPatientData();
     this.patientHisty = getPatientDetails.appointments.filter(x=>{
       return x.Status != 'Scheduled';

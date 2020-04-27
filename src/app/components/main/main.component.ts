@@ -22,7 +22,7 @@ export class MainComponent implements OnInit {
 
 
   getPatientId() {
-    debugger
+    
     this._shareData.setPatientId(this.patientID);
     if (this.patientID == undefined) {
       this._route.navigateByUrl('/Search')
@@ -50,7 +50,7 @@ export class MainComponent implements OnInit {
   getAllDoctorApi(){
     this.loaderDoctor = true;
     this._patientS.getAllDoctorData().subscribe(res => {
-      debugger
+      
       this.loaderDoctor = false;
       this.viewAllDoctor = res.Data;
       this._shareData.setDoctorData(this.viewAllDoctor)

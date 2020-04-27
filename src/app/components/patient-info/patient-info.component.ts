@@ -29,7 +29,7 @@ export class PatientInfoComponent implements OnInit {
   history: any;
   schedule: any;
   ngOnInit() {
-    debugger
+    
     let id = this._shareData.getPatientId();
     if (id == undefined || id == '') {
       this._route.navigateByUrl('/Search');
@@ -39,19 +39,19 @@ export class PatientInfoComponent implements OnInit {
 
   //submit login form
   PatientInfo(id) {
-    debugger
+    
     this.loader = true;
     this.patientInfoS.getPatientInfo(id).subscribe(res => {
       this.loader = false;
       if (res.error) {
         console.log(res, 'err');
       } else {
-        debugger
+        
         this.patientInfo = res.Data.body.Documents[0];
         this._shareData.setPatientInfo(this.patientInfo);
         if (this.patientInfo != undefined || this.patientInfo != []) {
           this.patientItems = res.Data.body.Documents[0].appointments;
-          debugger
+          
           if (this.patientInfo.photourl != '' || this.patientInfo.photourl != null || this.patientInfo.photourl || undefined) {
             this.getPhotoUrl(id, this.patientInfo.photourl)
           } else {
@@ -88,7 +88,7 @@ export class PatientInfoComponent implements OnInit {
 
   //get photo url
   getPhotoUrl(id, photoUrl) {
-    debugger
+    
     let imgURL = "https://caliberbbsa.blob.core.windows.net/patientphoto/" + photoUrl + '?sv=2019-02-02&ss=b&srt=sco&sp=rwdlac&se=2020-05-31T11:27:02Z&st=2020-04-24T03:27:02Z&spr=https&sig=gKM6ztleUcZf3bE1iifHg71VmwCaf5%2FIqEyQilo8cNQ%3D';
     this.getBase64ImageFromURL(imgURL).subscribe(base64data => {
       console.log(base64data);

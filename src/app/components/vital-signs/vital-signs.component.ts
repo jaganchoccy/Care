@@ -54,6 +54,7 @@ export class VitalSignsComponent implements OnInit {
   bloodPreDiaMin: number;
   bloodPreDiaMax: number;
   bloodPreSysMax: number;
+  resultData: any[];
 
   constructor(private _shareData: ShareDataService, private _route: Router, private _patientS: vitalService, ) {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
@@ -100,19 +101,19 @@ export class VitalSignsComponent implements OnInit {
   }
 
   //filterByDate
-  filterByDate(val) {
-    this.byDate = val;
-    this.chartTempLabel = []
-    if (this.byDate != undefined) {
-      this.bodyTempLabel.forEach(ele => {
-        this.chartTempLabel.push(this.dateFormat(ele, this.byDate));
-      })
-    }
+  // filterByDate(val) {
+  //   this.byDate = val;
+  //   this.chartTempLabel = []
+  //   if (this.byDate != undefined) {
+  //     this.bodyTempLabel.forEach(ele => {
+  //       this.chartTempLabel.push(this.dateFormat(ele, this.byDate));
+  //     })
+  //   }
+  //   debugger
+  //   this.barChartLabels = this.chartTempLabel;
 
-    this.barChartLabels = this.chartTempLabel;
-
-    console.log(this.barChartLabels, val)
-  }
+  //   console.log(this.barChartLabels, val)
+  // }
   //get body temperature
   bodyTemp() {
     this.getBodyTemp = [];
@@ -125,6 +126,7 @@ export class VitalSignsComponent implements OnInit {
     Value.forEach((el, index) => {
       this.barChartData[0].data[index] = el;
     });
+    
     this.barChartData[0].data.push(Value)
 
     //label
@@ -133,8 +135,24 @@ export class VitalSignsComponent implements OnInit {
       this.bodyTempLabel.push(ele.EventProcessedUtcTime)
     });
 
-    this.filterByDate('hour')
+    
+    this.barChartLabels = this.filterDate(this.bodyTempLabel)
+    //this.filterByDate('hour')
+    
 
+  }
+
+  filterDate(data){
+    this.resultData = []
+    data.forEach(element => {
+      var first = element.split('T');
+      var date = first[0].slice(-5);
+      var tym = first[1].slice(0,5)
+      var final = date+'/'+tym;
+      this.resultData.push(final);
+    });
+
+    return this.resultData
   }
 
 
@@ -162,29 +180,29 @@ export class VitalSignsComponent implements OnInit {
 
 
 
-  dateFormat(val, byDate) {
-    var fromDate = val;
-    var x = fromDate.split('T');
-    var dateObj = new Date(x[0]);
-    var time = x[1].slice(0, 8)
+  // dateFormat(val, byDate) {
+  //   var fromDate = val;
+  //   var x = fromDate.split('T');
+  //   var dateObj = new Date(x[0]);
+  //   var time = x[1].slice(0, 8)
 
-    if (byDate == 'day') {
-      var day = dateObj.getUTCDate();
-      return day;
-    } else if (byDate == 'month') {
-      var month = dateObj.getUTCMonth() + 1; //months from 1-12
-      return month;
-    } else if (byDate == 'year') {
-      var year = dateObj.getUTCFullYear();
-      return year;
-    } else if (byDate == 'hour') {
-      var hour = time.split(':')
-      return hour[0];
-    } else if (byDate == 'minute') {
-      var min = time.split(':')
-      return min[1];
-    }
-  }
+  //   if (byDate == 'day') {
+  //     var day = dateObj.getUTCDate();
+  //     return day;
+  //   } else if (byDate == 'month') {
+  //     var month = dateObj.getUTCMonth() + 1; //months from 1-12
+  //     return month;
+  //   } else if (byDate == 'year') {
+  //     var year = dateObj.getUTCFullYear();
+  //     return year;
+  //   } else if (byDate == 'hour') {
+  //     var hour = time.split(':')
+  //     return hour[0];
+  //   } else if (byDate == 'minute') {
+  //     var min = time.split(':')
+  //     return min[1];
+  //   }
+  // }
 
   //calculate heart Rate
   heartRate() {

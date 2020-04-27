@@ -22,7 +22,7 @@
                         <h5>Body temperature</h5>
                     </div>
                     <div class="col-md-4 text-right">
-                        <span style="font-size: 12px;
+                        <!-- <span style="font-size: 12px;
                         padding-right: 12px;">ViewBy:</span>
                         <select (change)="filterByDate($event.target.value)">
                             <option value="hour">Hour</option>
@@ -30,7 +30,7 @@
                             <option value="month">Month</option>
                             <option value="year">Year</option>
                             <option value="minute">Minute</option>
-                        </select>
+                        </select> -->
                     </div>
                     <div class="col-md-3 text-right" (click)="randomize()">
                         <button pButton type="button" label="Change Chart View" class="ui-button-rounded"></button>
@@ -41,7 +41,7 @@
                     <canvas baseChart [datasets]="barChartData" width="400" [labels]="barChartLabels"
                         [options]="barChartOptions" [legend]="barChartLegend" [chartType]="barChartType"
                         (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
-                    <div class="chartLabel">{{byDate}}</div>
+                    <div class="chartLabel">month-date/hour:minute</div>
                 </div>
             </div>
 
